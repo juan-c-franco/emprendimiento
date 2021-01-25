@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/06/2019 03:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Capacitacionprograma" table="CapacitacionPrograma" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idcapacitacionprograma" type="long">
+            <column name="IDCAPACITACIONPROGRAMA" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="categoria" class="com.growdata.emprendimiento.persistence.entidad.Categoria" fetch="select">
+            <column name="IDCATEGORIA" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadocapacitacionprograma" class="com.growdata.emprendimiento.persistence.entidad.Estadocapacitacionprograma" fetch="select">
+            <column name="IDESTADOCAPACITACIONPROGRAMA" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="idoferenteinstitucion" type="long">
+            <column name="IDOFERENTEINSTITUCION" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="nombrecapacitacionprograma" type="string">
+            <column name="NOMBRECAPACITACIONPROGRAMA" length="200" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date" update="false">
+            <column name="FECHAREGISTRO" length="7" not-null="true" />
+        </property>
+        <set name="programacions" table="PROGRAMACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAPACITACIONPROGRAMA" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Programacion" />
+        </set>
+        <set name="modulociclos" table="MODULOCICLO" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDCAPACITACIONPROGRAMA" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Modulociclo" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Beneficiario" table="BENEFICIARIO" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idbeneficiario" type="long">
+            <column name="IDBENEFICIARIO" precision="18" scale="0" />
+            <generator class="increment" />
+                
+        </id>
+        <many-to-one name="tipodocumentoid" class="com.growdata.emprendimiento.persistence.entidad.Tipodocumentoid" fetch="select" lazy="false">
+            <column name="IDTIPODOCUMENTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="users" class="com.growdata.emprendimiento.persistence.entidad.Users" fetch="select" lazy="false">
+            <column name="IDUSER" length="200" not-null="true" />
+        </many-to-one>
+        <property name="primernombre" type="string">
+            <column name="PRIMERNOMBRE" length="200" not-null="true" />
+        </property>
+        <property name="segundonombre" type="string">
+            <column name="SEGUNDONOMBRE" length="200" />
+        </property>
+        <property name="primerapellido" type="string">
+            <column name="PRIMERAPELLIDO" length="200"  not-null="true"/>
+        </property>
+        <property name="segundoapellido" type="string">
+            <column name="SEGUNDOAPELLIDO" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="200" not-null="true" unique="true" />
+        </property>
+        <property name="telefono" type="long">
+            <column name="TELEFONO" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="numerodocumento" type="string">
+            <column name="NUMERODOCUMENTO" length="20" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <!--        <property name="iduser" type="big_decimal">
+            <column name="IDUSER" precision="22" scale="0" />
+        </property>-->
+        <set name="listaasistenciaaats" table="LISTAASISTENCIAAAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Listaasistenciaaat" />
+        </set>
+        <set name="asociadoses" table="ASOCIADOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Asociados" />
+        </set>
+        <set name="rutacapacitacions" table="RUTACAPACITACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Rutacapacitacion" />
+        </set>
+        <set name="listaasistencias" table="LISTAASISTENCIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Listaasistencia" />
+        </set>
+        <set name="documentoses" table="DOCUMENTOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Documentos" />
+        </set>
+        <set name="encuestas" table="ENCUESTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Encuesta" />
+        </set>
+        <set name="alumnoses" table="ALUMNOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Alumnos" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+/*
+Template Name: Emprende Admin
+Author: Alephart
+
+File: scss
+*/
+
+@import "../variable";
+/*******************
+ Our income
+*******************/
+.o-income {
+  .c3 line,
+  .c3 path {
+    stroke: $border-color;
+  }
+}

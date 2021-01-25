@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Formalizado" table="FORMALIZADO" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idformalizacion" type="long">
+            <column name="IDFORMALIZACION" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="emprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" fetch="select">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoconstitucionlegal" class="com.growdata.emprendimiento.persistence.entidad.Tipoconstitucionlegal" fetch="select">
+            <column name="IDTIPOCONSTITUCIONLEGAL" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="sectorproductivo" class="com.growdata.emprendimiento.persistence.entidad.Sectorproductivo" fetch="select">
+            <column name="IDSECTORPRODUCTIVO" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="actividadinternacional" class="com.growdata.emprendimiento.persistence.entidad.Actividadinternacional" fetch="select">
+            <column name="IDACTIVIDADINTERNACIONAL" precision="22" scale="0" />
+        </many-to-one>
+        <property name="nombreempresa" type="string">
+            <column name="NOMBREEMPRESA" length="400" not-null="true"/>
+        </property>
+        <property name="representantelegal" type="string">
+            <column name="REPRESENTANTELEGAL" length="400" not-null="true"/>
+        </property>
+        <property name="productoservicioofrece" type="string">
+            <column name="PRODUCTOSERVICIOOFRECE" length="400" not-null="true"/>
+        </property>
+        <property name="negociosinternet" type="java.lang.Character">
+            <column name="NEGOCIOSINTERNET" length="1" not-null="true"/>
+        </property>
+        <property name="numeroregistromercantil" type="string">
+            <column name="NUMEROREGISTROMERCANTIL" length="10" not-null="true"/>
+        </property>
+        <property name="fecharenovacion" type="date">
+            <column name="FECHARENOVACION" length="7" not-null="true"/>
+        </property>
+        <property name="nit" type="string">
+            <column name="NIT" length="15" not-null="true"/>
+        </property>
+        <property name="fechainiciolabores" type="date">
+            <column name="FECHAINICIOLABORES" length="7" not-null="true"/>
+        </property>
+        <property name="empleosdirectos" type="big_decimal">
+            <column name="EMPLEOSDIRECTOS" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="empleosindirectos" type="big_decimal">
+            <column name="EMPLEOSINDIRECTOS" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="direccionempresa" type="string">
+            <column name="DIRECCIONEMPRESA" length="200" not-null="true"/>
+        </property>
+        <property name="telefonoempresa" type="java.lang.Long">
+            <column name="TELEFONOEMPRESA" precision="18" scale="0" not-null="true"/>
+        </property>
+        <!--        <many-to-one name="municipios" class="com.growdata.emprendimiento.persistence.entidad.Municipios" fetch="select" lazy="false">
+            <column name="IDMUNICIPIOEMPRESA" precision="6" scale="0" not-null="true" />
+        </many-to-one>-->
+        <property name="municipio" type="int">
+            <column name="IDMUNICIPIOEMPRESA" precision="6" scale="0" not-null="true"/>
+        </property>
+        <property name="emailempresa" type="string">
+            <column name="EMAILEMPRESA" length="200" not-null="true"/>
+        </property>
+        <property name="sitioweb" type="string">
+            <column name="SITIOWEB" length="200" not-null="true"/>
+        </property>
+        <!--        <set name="emprendimientos" table="EMPRENDIMIENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FORMALIZADO" precision="18" scale="0" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" />
+        </set>-->
+        <set name="paisescomercializas" table="PAISESCOMERCIALIZA" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDPAISESCOMERCIALIZA" precision="18" scale="0" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Paisescomercializa" />
+        </set>
+    </class>
+</hibernate-mapping>

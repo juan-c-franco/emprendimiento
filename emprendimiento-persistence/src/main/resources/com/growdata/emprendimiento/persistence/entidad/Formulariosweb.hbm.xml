@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Formulariosweb" table="FORMULARIOSWEB" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idformulario" type="big_decimal">
+            <column name="IDFORMULARIO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="idformulariopadre" type="big_decimal">
+            <column name="IDFORMULARIOPADRE" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="etiqueta" type="string">
+            <column name="ETIQUETA" length="100" not-null="true"/>
+        </property>
+        <property name="tooltip" type="string">
+            <column name="TOOLTIP" length="400" not-null="true"/>
+        </property>
+        <property name="urlformulario" type="string">
+            <column name="URLFORMULARIO" length="200" />
+        </property>
+        <property name="posicion" type="big_decimal">
+            <column name="POSICION" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="authorities" type="string">
+            <column name="AUTHORITIES" length="50" not-null="true"/>
+        </property>
+        <property name="iconomenu" type="string">
+            <column name="ICONOMENU" length="40" />
+        </property>
+    </class>
+</hibernate-mapping>

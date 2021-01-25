@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/06/2019 03:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidadSIMPC.MdFFosfec" table="MD_F_FOSFEC" schema="SIMPCPRU" optimistic-lock="version">
+        <composite-id name="id" class="com.growdata.emprendimiento.persistence.entidadSIMPC.MdFFosfecId">
+            <key-property name="tipoIdentificacion" type="string">
+                <column name="TIPO_IDENTIFICACION" length="200" />
+            </key-property>
+            <key-property name="numeroIdentificacion" type="string">
+                <column name="NUMERO_IDENTIFICACION" length="200" />
+            </key-property>
+        </composite-id>
+        <property name="cargaId" type="big_decimal">
+            <column name="CARGA_ID" precision="20" scale="0" not-null="true" />
+        </property>
+        <property name="linea" type="big_decimal">
+            <column name="LINEA" precision="20" scale="0" not-null="true" />
+        </property>
+        <property name="tipoNovedad" type="string">
+            <column name="TIPO_NOVEDAD" length="200" />
+        </property>
+        <property name="codigoCcf" type="string">
+            <column name="CODIGO_CCF" length="200" />
+        </property>
+        <property name="primerNombre" type="string">
+            <column name="PRIMER_NOMBRE" length="200" />
+        </property>
+        <property name="segundoNombre" type="string">
+            <column name="SEGUNDO_NOMBRE" length="200" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="PRIMER_APELLIDO" length="200" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="SEGUNDO_APELLIDO" length="200" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FECHA_NACIMIENTO" length="7" />
+        </property>
+        <property name="genero" type="string">
+            <column name="GENERO" length="200" />
+        </property>
+        <property name="departamentoResidencia" type="string">
+            <column name="DEPARTAMENTO_RESIDENCIA" length="200" />
+        </property>
+        <property name="ciudadResidencia" type="string">
+            <column name="CIUDAD_RESIDENCIA" length="200" />
+        </property>
+        <property name="rangoSalarial" type="string">
+            <column name="RANGO_SALARIAL" length="200" />
+        </property>
+        <property name="inscripcionServicioEmpleo" type="string">
+            <column name="INSCRIPCION_SERVICIO_EMPLEO" length="200" />
+        </property>
+        <property name="tipoVinculacionCcf" type="string">
+            <column name="TIPO_VINCULACION_CCF" length="200" />
+        </property>
+        <property name="ultimaCcf" type="string">
+            <column name="ULTIMA_CCF" length="200" />
+        </property>
+        <property name="fechaPostulacionMpc" type="date">
+            <column name="FECHA_POSTULACION_MPC" length="7" />
+        </property>
+        <property name="administradoraSalud" type="string">
+            <column name="ADMINISTRADORA_SALUD" length="200" />
+        </property>
+        <property name="postulaPension" type="string">
+            <column name="POSTULA_PENSION" length="200" />
+        </property>
+        <property name="administradoraPension" type="string">
+            <column name="ADMINISTRADORA_PENSION" length="200" />
+        </property>
+        <property name="subsidioCuotaMonetaria" type="string">
+            <column name="SUBSIDIO_CUOTA_MONETARIA" length="200" />
+        </property>
+        <property name="ahorroCesantiasMpc" type="string">
+            <column name="AHORRO_CESANTIAS_MPC" length="200" />
+        </property>
+        <property name="administradoraFondoCesantias" type="string">
+            <column name="ADMINISTRADORA_FONDO_CESANTIAS" length="200" />
+        </property>
+        <property name="porcentajeAhorroCesantias" type="string">
+            <column name="PORCENTAJE_AHORRO_CESANTIAS" length="200" />
+        </property>
+        <property name="postulaBonoAlimentacion" type="string">
+            <column name="POSTULA_BONO_ALIMENTACION" length="200" />
+        </property>
+        <property name="verificacionRequisitos" type="string">
+            <column name="VERIFICACION_REQUISITOS" length="200" />
+        </property>
+        <property name="fechaVerificacionPostu" type="date">
+            <column name="FECHA_VERIFICACION_POSTU" length="7" />
+        </property>
+        <property name="beneficiarioDelMecanismo" type="string">
+            <column name="BENEFICIARIO_DEL_MECANISMO" length="200" />
+        </property>
+        <property name="cumpleRutaDeEmpleabildad" type="string">
+            <column name="CUMPLE_RUTA_DE_EMPLEABILDAD" length="200" />
+        </property>
+        <property name="fechaLiquidacionBeneficio" type="date">
+            <column name="FECHA_LIQUIDACION_BENEFICIO" length="7" />
+        </property>
+        <property name="periodoBeneficioLiquidado" type="string">
+            <column name="PERIODO_BENEFICIO_LIQUIDADO" length="200" />
+        </property>
+        <property name="numeroBeneficiosLiquidados" type="string">
+            <column name="NUMERO_BENEFICIOS_LIQUIDADOS" length="200" />
+        </property>
+        <property name="numeroCuotasLiquidadas" type="string">
+            <column name="NUMERO_CUOTAS_LIQUIDADAS" length="200" />
+        </property>
+        <property name="numeroPersonasCargo" type="string">
+            <column name="NUMERO_PERSONAS_CARGO" length="200" />
+        </property>
+        <property name="numeroCuotasIncentivo" type="string">
+            <column name="NUMERO_CUOTAS_INCENTIVO" length="200" />
+        </property>
+        <property name="numeroBonosLiquidados" type="string">
+            <column name="NUMERO_BONOS_LIQUIDADOS" length="200" />
+        </property>
+        <property name="montoLiquidadoSalud" type="string">
+            <column name="MONTO_LIQUIDADO_SALUD" length="200" />
+        </property>
+        <property name="montoLiquidadoPension" type="string">
+            <column name="MONTO_LIQUIDADO_PENSION" length="200" />
+        </property>
+        <property name="montoLiquidadoCuota" type="string">
+            <column name="MONTO_LIQUIDADO_CUOTA" length="200" />
+        </property>
+        <property name="montoLiquidadoCesantias" type="string">
+            <column name="MONTO_LIQUIDADO_CESANTIAS" length="200" />
+        </property>
+        <property name="montoLiquidadoAlimentacion" type="string">
+            <column name="MONTO_LIQUIDADO_ALIMENTACION" length="200" />
+        </property>
+        <property name="valorTotalPrestaciones" type="string">
+            <column name="VALOR_TOTAL_PRESTACIONES" length="200" />
+        </property>
+        <property name="renunciaVoluntaria" type="string">
+            <column name="RENUNCIA_VOLUNTARIA" length="200" />
+        </property>
+        <property name="fechaRenuncia" type="date">
+            <column name="FECHA_RENUNCIA" length="7" />
+        </property>
+        <property name="perdidaBeneficio" type="string">
+            <column name="PERDIDA_BENEFICIO" length="200" />
+        </property>
+        <property name="fechaPerdidaBeneficio" type="date">
+            <column name="FECHA_PERDIDA_BENEFICIO" length="7" />
+        </property>
+        <property name="terminacionBeneficio" type="string">
+            <column name="TERMINACION_BENEFICIO" length="200" />
+        </property>
+        <property name="fechaTerminacionBeneficio" type="date">
+            <column name="FECHA_TERMINACION_BENEFICIO" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

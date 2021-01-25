@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Encuesta" table="ENCUESTA" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idencuesta" type="long">
+            <column name="IDENCUESTA" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="beneficiario" class="com.growdata.emprendimiento.persistence.entidad.Beneficiario" fetch="select">
+            <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoencuesta" class="com.growdata.emprendimiento.persistence.entidad.Tipoencuesta" fetch="select">
+            <column name="IDTIPOENCUESTA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fechaenvio" type="date">
+            <column name="FECHAENVIO" length="7" not-null="true"/>
+        </property>
+        <property name="fechavigencia" type="date">
+            <column name="FECHAVIGENCIA" length="7" not-null="true"/>
+        </property>
+        <property name="fechadiligenciamiento" type="date">
+            <column name="FECHADILIGENCIAMIENTO" length="7" />
+        </property>
+        <property name="diligenciada" type="java.lang.Character">
+            <column name="DILIGENCIADA" length="1" not-null="true"/>
+        </property>
+        <set name="respuestasencuestas" table="RESPUESTASENCUESTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDENCUESTA" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Respuestasencuesta" />
+        </set>
+    </class>
+</hibernate-mapping>

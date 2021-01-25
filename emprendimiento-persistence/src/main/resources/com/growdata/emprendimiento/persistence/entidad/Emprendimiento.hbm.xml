@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" table="EMPRENDIMIENTO" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idemprendimiento" type="long">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="cajacompensacion" class="com.growdata.emprendimiento.persistence.entidad.Cajacompensacion" fetch="select">
+            <column name="IDCAJACOMPENSACION" precision="38" scale="0" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="estadoemprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Estadoemprendimiento" fetch="select" lazy="false">
+            <column name="IDESTADOEMPRENDIMIENTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <!--        <many-to-one name="formalizado" class="com.growdata.emprendimiento.persistence.entidad.Formalizado" fetch="select">
+            <column name="FORMALIZADO" precision="18" scale="0" />
+        </many-to-one>-->
+        <property name="formalizado" type="int">
+            <column name="FORMALIZADO" precision="18" scale="0" />
+        </property>
+        <many-to-one name="tipoemprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Tipoemprendimiento" fetch="select" lazy="false">
+            <column name="IDTIPOEMPRENDIMIENTO" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombreemprendimiento" type="string">
+            <column name="NOMBREEMPRENDIMIENTO" length="200" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <set name="rutaacompanamientoats" table="RUTAACOMPANAMIENTOAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Rutaacompanamientoat" />
+        </set>
+        <set name="formalizados" table="FORMALIZADO" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Formalizado" />
+        </set>
+        <set name="documentoses" table="DOCUMENTOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Documentos" />
+        </set>
+        <set name="noestablecidos" table="NOESTABLECIDO" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Noestablecido" />
+        </set>
+        <set name="asociadoses" table="ASOCIADOS" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Asociados" />
+        </set>
+        <set name="evaluacionemprendimientoses" table="EVALUACIONEMPRENDIMIENTOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Evaluacionemprendimientos" />
+        </set>
+        <set name="financiacions" table="FINANCIACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Financiacion" />
+        </set>
+        <set name="seguimientos" table="SEGUIMIENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Seguimiento" />
+        </set>
+        <set name="logestadoemprendimientos" table="LOGESTADOEMPRENDIMIENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Logestadoemprendimiento" />
+        </set>
+    </class>
+</hibernate-mapping>

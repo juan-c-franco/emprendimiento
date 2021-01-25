@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Rutaacompanamientoat" table="RUTAACOMPANAMIENTOAT" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idrutaacompanamientoat" type="long">
+            <column name="IDRUTAACOMPANAMIENTOAT" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="emprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" fetch="select" lazy="false">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <set name="sesionacompanamientoats" table="SESIONACOMPANAMIENTOAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDRUTAACOMPANAMIENTOAT" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Sesionacompanamientoat" />
+        </set>
+        <set name="temasrutaacompanamientoats" table="TEMASRUTAACOMPANAMIENTOAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDRUTAACOMPANAMIENTOAT" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Temasrutaacompanamientoat" />
+        </set>
+    </class>
+</hibernate-mapping>

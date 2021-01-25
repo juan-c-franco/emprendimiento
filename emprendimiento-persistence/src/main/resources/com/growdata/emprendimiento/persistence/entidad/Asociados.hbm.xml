@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Asociados" table="ASOCIADOS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idasociado" type="long">
+            <column name="IDASOCIADO" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="beneficiario" class="com.growdata.emprendimiento.persistence.entidad.Beneficiario" fetch="select" lazy="false">
+            <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="emprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" fetch="select" lazy="false">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="lider" type="java.lang.Character">
+            <column name="LIDER" length="1" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Municipios" table="MUNICIPIOS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idmunicipio" type="int">
+            <column name="IDMUNICIPIO" precision="6" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="100" not-null="true" />
+        </property>
+        <many-to-one name="departamentos" class="com.growdata.emprendimiento.persistence.entidad.Departamentos" fetch="select" lazy="false">
+            <column name="IDDEPARTAMENTO" precision="3" scale="0" not-null="true" />
+        </many-to-one>
+        <set name="formalizados" table="FORMALIZADO" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDMUNICIPIOEMPRESA" precision="6" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Formalizado" />
+        </set>
+    </class>
+</hibernate-mapping>

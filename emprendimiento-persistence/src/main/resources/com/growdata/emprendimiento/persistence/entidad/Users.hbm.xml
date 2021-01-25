@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Users" table="USERS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="username" type="string">
+            <column name="USERNAME" length="200" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="68" not-null="true" />
+        </property>
+        <property name="enabled" type="big_decimal">
+            <column name="ENABLED" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="iduser" type="big_decimal" update="false">
+            <column name="IDUSER" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date" update="false">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="accountnonlocked" type="long" update="true">
+            <column name="ACCOUNTNONLOCKED" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="credentialsnonexpired" type="long" update="true">
+            <column name="CREDENTIALSNONEXPIRED" precision="1" scale="0" not-null="true" />
+        </property>
+        <set name="logauditorias" table="LOGAUDITORIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERNAME" length="200" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Logauditoria" />
+        </set>
+        <set name="groupMemberses" table="GROUP_MEMBERS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERNAME" length="200" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.GroupMembers" />
+        </set>
+        <set name="authoritieses" table="AUTHORITIES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERNAME" length="200" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Authorities" />
+        </set>
+        <set name="funcionarios" table="FUNCIONARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERNAME" length="200" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Funcionario" />
+        </set>
+        <set name="beneficiarios" table="BENEFICIARIO" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDUSER" length="200" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Beneficiario" />
+        </set>
+    </class>
+</hibernate-mapping>

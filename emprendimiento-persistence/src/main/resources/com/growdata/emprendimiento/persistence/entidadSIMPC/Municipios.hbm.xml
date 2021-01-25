@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18/07/2019 02:40:04 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidadSIMPC.Municipios" table="MUNICIPIOS" schema="SIMPCPRU" optimistic-lock="version">
+        <id name="id" type="big_decimal">
+            <column name="ID" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="departamentos" class="com.growdata.emprendimiento.persistence.entidadSIMPC.Departamentos" fetch="select">
+            <column name="DEPARTAMENTO_ID" scale="0" not-null="true">
+                <comment>Id del departamento al cual pertenece el municipio.</comment>
+            </column>
+        </many-to-one>
+        <property name="divipola" type="string">
+            <column name="DIVIPOLA" length="1020">
+                <comment>C&#195;&#179;digo Divipola de la divisi&#195;&#179;n administrativa.</comment>
+            </column>
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="1020" not-null="true">
+                <comment>Nombre del Municipio.</comment>
+            </column>
+        </property>
+        <set name="sedeses" table="SEDES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_MUNICIPIO" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidadSIMPC.Sedes" />
+        </set>
+    </class>
+</hibernate-mapping>

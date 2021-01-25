@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/07/2019 04:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Alumnos" table="ALUMNOS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idalumno" type="big_decimal">
+            <column name="IDALUMNO" precision="38" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="beneficiario" class="com.growdata.emprendimiento.persistence.entidad.Beneficiario" fetch="select">
+            <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.growdata.emprendimiento.persistence.entidad.Funcionario" fetch="select">
+            <column name="IDFUNCIONARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="programacion" class="com.growdata.emprendimiento.persistence.entidad.Programacion" fetch="select">
+            <column name="IDPROGRAMACION" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true" />
+        </property>
+        <set name="aprobacions" table="APROBACION" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDALUMNO" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Aprobacion" />
+        </set>
+        <set name="seguimientoasistencias" table="SEGUIMIENTOASISTENCIA" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDALUMNO" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Seguimientoasistencia" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Respuestasencuesta" table="RESPUESTASENCUESTA" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idrespuesta" type="long">
+            <column name="IDRESPUESTA" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="encuesta" class="com.growdata.emprendimiento.persistence.entidad.Encuesta" fetch="select">
+            <column name="IDENCUESTA" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="preguntas" class="com.growdata.emprendimiento.persistence.entidad.Preguntas" fetch="select">
+            <column name="IDPREGUNTA" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="respuesta" type="string">
+            <column name="RESPUESTA" length="50" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

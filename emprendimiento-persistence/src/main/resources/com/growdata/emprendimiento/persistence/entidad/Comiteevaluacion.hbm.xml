@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Comiteevaluacion" table="COMITEEVALUACION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idcomite" type="big_decimal">
+            <column name="IDCOMITE" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="cajacompensacion" class="com.growdata.emprendimiento.persistence.entidad.Cajacompensacion" fetch="select" lazy="false">
+            <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombrecomite" type="string">
+            <column name="NOMBRECOMITE" length="100" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" not-null="true"/>
+        </property>
+        <set name="sesioncomites" table="SESIONCOMITE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCOMITE" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Sesioncomite" />
+        </set>
+        <set name="integrantescomites" table="INTEGRANTESCOMITE" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDCOMITE" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Integrantescomite" />
+        </set>
+    </class>
+</hibernate-mapping>

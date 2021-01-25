@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Actividadinternacional" table="ACTIVIDADINTERNACIONAL" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idactividadinternacional" type="big_decimal">
+            <column name="IDACTIVIDADINTERNACIONAL" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreactividadinternacional" type="string">
+            <column name="NOMBREACTIVIDADINTERNACIONAL" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" not-null="true"/>
+        </property>
+        <set name="formalizados" table="FORMALIZADO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDACTIVIDADINTERNACIONAL" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Formalizado" />
+        </set>
+    </class>
+</hibernate-mapping>

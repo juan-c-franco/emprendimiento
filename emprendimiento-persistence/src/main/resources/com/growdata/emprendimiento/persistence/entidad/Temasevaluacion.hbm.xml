@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Temasevaluacion" table="TEMASEVALUACION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idtema" type="big_decimal">
+            <column name="IDTEMA" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="cajacompensacion" class="com.growdata.emprendimiento.persistence.entidad.Cajacompensacion" fetch="select" lazy="false">
+            <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="herramientasvaloracion" class="com.growdata.emprendimiento.persistence.entidad.Herramientasvaloracion" fetch="select" lazy="false">
+            <column name="IDHERRAMIENTA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombretema" type="string">
+            <column name="NOMBRETEMA" length="200" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="horasbasico" type="big_decimal">
+            <column name="HORASBASICO" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="calificacionintermedio" type="big_decimal">
+            <column name="CALIFICACIONINTERMEDIO" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="horasavanzado" type="big_decimal">
+            <column name="HORASAVANZADO" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="calificacionavanzado" type="big_decimal">
+            <column name="CALIFICACIONAVANZADO" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="requieredocumento" type="java.lang.Character">
+            <column name="REQUIEREDOCUMENTO" length="1" />
+        </property>
+        <property name="calificacionbasico" type="java.lang.Long">
+            <column name="CALIFICACIONBASICO" precision="18" scale="0" not-null="true"/>
+        </property>
+        <property name="horasintermedio" type="java.lang.Long">
+            <column name="HORASINTERMEDIO" precision="18" scale="0" not-null="true"/>
+        </property>
+        <property name="estado" type="char">
+            <column name="ESTADO" length="1" not-null="true"/>
+        </property>
+        <set name="temasrutaacompanamientoats" table="TEMASRUTAACOMPANAMIENTOAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDTEMA" precision="18" scale="0" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Temasrutaacompanamientoat" />
+        </set>
+        <set name="preguntases" table="PREGUNTAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDTEMA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Preguntas" />
+        </set>
+    </class>
+</hibernate-mapping>

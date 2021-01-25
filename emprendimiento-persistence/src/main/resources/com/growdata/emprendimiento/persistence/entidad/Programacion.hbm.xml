@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/07/2019 04:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="com.growdata.emprendimiento.persistence.entidad.Programacion" optimistic-lock="version" schema="EMPRENDIMIENTOP" table="PROGRAMACION">
+    <id name="idprogramacion" type="big_decimal">
+      <column name="IDPROGRAMACION" precision="38" scale="0"/>
+      <generator class="increment"/>
+    </id>
+    <many-to-one class="com.growdata.emprendimiento.persistence.entidad.Funcionario" fetch="select" name="funcionario">
+      <column name="IDFUNCIONARIO" not-null="true" precision="18" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.growdata.emprendimiento.persistence.entidad.Capacitacionprograma" fetch="select" name="capacitacionprograma">
+      <column name="IDCAPACITACIONPROGRAMA" not-null="true" precision="18" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.growdata.emprendimiento.persistence.entidad.Docentes" fetch="select" name="docentes">
+      <column name="IDDOCENTE" not-null="true" precision="18" scale="0"/>
+    </many-to-one>
+    <many-to-one class="com.growdata.emprendimiento.persistence.entidad.Estadosesion" fetch="select" lazy="false" name="estadosesion">
+      <column name="IDESTADOSESION" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="idInstitucion" type="big_decimal">
+      <column name="IDSEDE" not-null="true" precision="18" scale="0"/>
+    </property>
+    <property name="fechainicioprogramacion" type="java.sql.Timestamp">
+      <column name="FECHAINICIOPROGRAMACION" not-null="true"/>
+    </property>
+    <property name="fechafinalrogramacion" type="java.sql.Timestamp">
+      <column name="FECHAFINALROGRAMACION" not-null="true"/>
+    </property>
+    <property name="maxasistentes" type="short">
+      <column name="MAXASISTENTES" not-null="true" precision="3" scale="0"/>
+    </property>
+    <property name="fecharegistro" type="date">
+      <column length="7" name="FECHAREGISTRO" not-null="true"/>
+    </property>
+    <property name="ubicacion" type="string">
+      <column length="50" name="UBICACION" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="false" name="alumnoses" table="ALUMNOS">
+      <key>
+        <column name="IDPROGRAMACION" not-null="true" precision="38" scale="0"/>
+      </key>
+      <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Alumnos"/>
+    </set>
+  </class>
+</hibernate-mapping>

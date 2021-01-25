@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Tipofinanciacion" table="TIPOFINANCIACION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idtipofinanciacion" type="big_decimal">
+            <column name="IDTIPOFINANCIACION" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombretipofinanciacion" type="string">
+            <column name="NOMBRETIPOFINANCIACION" length="100" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" not-null="true"/>
+        </property>
+        <set name="financiacionsForIdtipofinanciacions" table="FINANCIACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDTIPOFINANCIACIONS" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Financiacion" />
+        </set>
+        <set name="financiacionsForIdtipofinanciaciona" table="FINANCIACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDTIPOFINANCIACIONA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Financiacion" />
+        </set>
+    </class>
+</hibernate-mapping>

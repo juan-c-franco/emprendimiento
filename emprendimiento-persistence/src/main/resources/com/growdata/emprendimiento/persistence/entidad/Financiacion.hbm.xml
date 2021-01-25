@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Financiacion" table="FINANCIACION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idfinanciacion" type="long">
+            <column name="IDFINANCIACION" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="emprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" fetch="select">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="entidadesfinancieras" class="com.growdata.emprendimiento.persistence.entidad.Entidadesfinancieras" fetch="select">
+            <column name="IDENTIDADFINANCIERA" precision="22" scale="0" not-null="false" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.growdata.emprendimiento.persistence.entidad.Funcionario" fetch="select">
+            <column name="IDFUNCIONARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipofinanciacionByIdtipofinanciacions" class="com.growdata.emprendimiento.persistence.entidad.Tipofinanciacion" fetch="select">
+            <column name="IDTIPOFINANCIACIONS" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipofinanciacionByIdtipofinanciaciona" class="com.growdata.emprendimiento.persistence.entidad.Tipofinanciacion" fetch="select">
+            <column name="IDTIPOFINANCIACIONA" precision="38" scale="0" not-null="false" />
+        </many-to-one>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="montofinanciacions" type="java.lang.Long">
+            <column name="MONTOFINANCIACIONS" precision="18" scale="0" not-null="true"/>
+        </property>
+        <property name="cuotaspactadass" type="big_decimal">
+            <column name="CUOTASPACTADASS" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="tasaintertess" type="big_decimal">
+            <column name="TASAINTERTESS" precision="6" scale="3" not-null="true"/>
+        </property>
+        <property name="recursospropiosae" type="java.lang.Long">
+            <column name="RECURSOSPROPIOSAE" precision="18" scale="0" not-null="true"/>
+        </property>
+        <property name="empleosgenerados" type="big_decimal">
+            <column name="EMPLEOSGENERADOS" precision="22" scale="0" not-null="false"/>
+        </property>
+        <property name="empleosporgenerar" type="big_decimal">
+            <column name="EMPLEOSPORGENERAR" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="capitaltotal" type="java.lang.Long">
+            <column name="CAPITALTOTAL" precision="18" scale="0" not-null="true"/>
+        </property>
+        <property name="capitaltrabajo" type="java.lang.Long">
+            <column name="CAPITALTRABAJO" precision="18" scale="0" not-null="true"/>
+        </property>
+        <property name="mesespuntoequilibrio" type="big_decimal">
+            <column name="MESESPUNTOEQUILIBRIO" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="montoa" type="java.lang.Long">
+            <column name="MONTOA" precision="18" scale="0" not-null="false"/>
+        </property>
+        <property name="tasainteresa" type="big_decimal">
+            <column name="TASAINTERESA" precision="6" scale="3" not-null="false"/>
+        </property>
+        <property name="cuotaspactadasa" type="big_decimal">
+            <column name="CUOTASPACTADASA" precision="22" scale="0" not-null="false"/>
+        </property>
+    </class>
+</hibernate-mapping>

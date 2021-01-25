@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Sesioncomite" table="SESIONCOMITE" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idsesioncomite" type="long">
+            <column name="IDSESIONCOMITE" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="comiteevaluacion" class="com.growdata.emprendimiento.persistence.entidad.Comiteevaluacion" fetch="select">
+            <column name="IDCOMITE" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadosesion" class="com.growdata.emprendimiento.persistence.entidad.Estadosesion" fetch="select">
+            <column name="IDESTADOSESION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.growdata.emprendimiento.persistence.entidad.Funcionario" fetch="select">
+            <column name="IDFUNCIONARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fechainicio" type="java.sql.Timestamp">
+            <column name="FECHAINICIO" length="7" not-null="true"/>
+        </property>
+        <property name="fechafinal" type="java.sql.Timestamp">
+            <column name="FECHAFINAL" length="7" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="java.sql.Timestamp">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="urlacta" type="string">
+            <column name="URLACTA" length="200" />
+        </property>
+        <set name="evaluacionemprendimientoses" table="EVALUACIONEMPRENDIMIENTOS" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="IDSESIONCOMITE" precision="18" scale="0" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Evaluacionemprendimientos" />
+        </set>
+        <property name="ubicacion" type="string">
+            <column name="UBICACION" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/07/2019 04:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Docentes" table="DOCENTES" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="iddocente" type="long">
+            <column name="IDDOCENTE" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="tipodocumentoid" class="com.growdata.emprendimiento.persistence.entidad.Tipodocumentoid" fetch="select">
+            <column name="IDTIPODOCUMENTO" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadodocente" class="com.growdata.emprendimiento.persistence.entidad.Estadodocente" fetch="select">
+            <column name="IDESTADODOCENTE" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="primernombre" type="string">
+            <column name="PRIMERNOMBRE" length="200" not-null="true" />
+        </property>
+        <property name="segundonombre" type="string">
+            <column name="SEGUNDONOMBRE" length="200" />
+        </property>
+        <property name="primerapellido" type="string">
+            <column name="PRIMERAPELLIDO" length="200" not-null="true" />
+        </property>
+        <property name="segundoapellido" type="string">
+            <column name="SEGUNDOAPELLIDO" length="200" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="200" not-null="true" />
+        </property>
+        <property name="telefono" type="long">
+            <column name="TELEFONO" precision="18" scale="0" not-null="true" />
+        </property>
+        <property name="numerodocumento" type="string">
+            <column name="NUMERODOCUMENTO" length="20" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true" />
+        </property>
+        <set name="programacions" table="PROGRAMACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDDOCENTE" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Programacion" />
+        </set>
+    </class>
+</hibernate-mapping>

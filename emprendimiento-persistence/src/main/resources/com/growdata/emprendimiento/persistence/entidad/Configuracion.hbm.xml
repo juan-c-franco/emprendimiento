@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Configuracion" table="CONFIGURACION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idconfiguracion" type="big_decimal">
+            <column name="IDCONFIGURACION" precision="38" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="nombreconfiguracion" type="string">
+            <column name="NOMBRECONFIGURACION" length="100" not-null="true"/>
+        </property>
+        <property name="fechamodificacion" type="java.sql.Timestamp">
+            <column name="FECHAMODIFICACION" length="7" not-null="true"/>
+        </property>
+        <property name="valor" type="int">
+            <column name="VALOR" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

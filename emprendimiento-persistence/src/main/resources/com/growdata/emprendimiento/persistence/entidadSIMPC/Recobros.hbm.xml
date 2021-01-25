@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/06/2019 03:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidadSIMPC.Recobros" table="RECOBROS" schema="SIMPCPRU" optimistic-lock="version">
+        <id name="idrecobro" type="big_decimal">
+            <column name="IDRECOBRO" precision="38" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="mdFDatosBasicos" class="com.growdata.emprendimiento.persistence.entidadSIMPC.MdFDatosBasicos" fetch="select">
+            <column name="PERSON_ID" precision="38" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="idverificacion" type="big_decimal">
+            <column name="IDVERIFICACION" precision="38" scale="0" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true" />
+        </property>
+        <property name="valorrecobro" type="int">
+            <column name="VALORRECOBRO" precision="9" scale="0" not-null="true" />
+        </property>
+        <set name="abonoses" table="ABONOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDRECOBRO" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidadSIMPC.Abonos" />
+        </set>
+    </class>
+</hibernate-mapping>

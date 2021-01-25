@@ -1,0 +1,46 @@
+// Blue colors
+.skin-blue {
+    /*Theme Colors*/
+    $themecolor: #2f7d93;
+    $themecolor-alt: #26c6da; //#03a9f3; //#004488;
+    $sidebar-text: #2f7d93;
+
+    //Bread-crumb
+    .page-titles {
+        background: $themecolor;
+
+        .breadcrumb li a {
+            color: $white;
+        }
+
+        .breadcrumb .breadcrumb-item.active{
+            color: $white;
+        }
+    }
+
+    // Sidebar dark
+    .sidebar-nav {
+        ul li {
+
+            &.nav-big-cap {               
+                background: $themecolor;
+            }
+        }
+        ul li a {
+            &.active,
+            &:hover {
+                color: $sidebar-text;
+                i {
+                    color: $sidebar-text;
+                }
+            }      
+        
+        }
+
+    }
+
+    .right-sidebar .rpanel-title {
+        background: $themecolor;
+    }
+   
+}

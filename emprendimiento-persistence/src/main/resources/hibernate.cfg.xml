@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2008, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<hibernate-configuration>
+    <session-factory>
+        <!--              Base de datos Growdata JNDI -->
+        <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.jdbc.use_get_generated_keys">true</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
+        <property name="hibernate.connection.datasource">jdbc/emprendimiento</property>
+            
+        <!--mostrar el SQL que usa hibernate -->
+        <property name="show_sql">true</property>
+        <!-- Contexto de sesiÃ³n -->
+        <property name="current_session_context_class">thread</property>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Listaasistenciaaat.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Sesioncomite.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Temasrutacapacitacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Documentos.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipoconstitucionlegal.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Entidadesfinancieras.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tiposesion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipofinanciacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Funcionario.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Estadofuncionario.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Financiacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipoprioridad.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Authorities.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Evaluacionintegrantescomite.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Estadosesion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Seguimiento.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Herramientasvaloracion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Preguntas.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Temasevaluacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipoencuesta.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipodocumentoid.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Formalizado.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Estadocajacompensacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Paisescomercializa.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Observaciones.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Emprendimiento.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Actividadinternacional.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Integrantescomite.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Sesionacompanamientoat.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Temasrutaacompanamientoat.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Asociados.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/GroupAuthorities.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Observacionesseguimiento.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Users.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Listaasistencia.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Logestadoemprendimiento.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipoemprendimiento.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Rutacapacitacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Cajacompensacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Rutaacompanamientoat.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/GroupMembers.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Formulariosweb.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Tipodocumentos.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Evaluacionemprendimientos.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Sectorproductivo.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Estadoemprendimiento.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Comiteevaluacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Respuestasencuesta.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Sesiones.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Groups.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Loginiciosesion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Logauditoria.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Beneficiario.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Encuesta.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Noestablecido.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/PlantillaMail.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Paises.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Temasvaloracionindividual.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Configuracion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Categoria.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/CapacitacionPrograma.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/ModuloCiclo.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Alumnos.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Aprobacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Docentes.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/EstadoCapacitacionPrograma.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/EstadoDocente.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/Programacion.hbm.xml"/>
+        <mapping resource="com/growdata/emprendimiento/persistence/entidad/SeguimientoAsistencia.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

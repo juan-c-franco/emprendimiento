@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/01/2018, 10:10:02 PM
+    Author     : ALEJO
+*/
+
+body{
+    background-color: #212529;
+    opacity: 0,3;
+font-family: 'KoHo', sans-serif;
+}
+#login{
+    -webkit-border-radius: 20px ;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+}

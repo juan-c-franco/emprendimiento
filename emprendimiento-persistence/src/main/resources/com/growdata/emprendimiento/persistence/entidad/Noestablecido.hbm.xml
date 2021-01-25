@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Noestablecido" table="NOESTABLECIDO" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idnoestablecido" type="big_decimal">
+            <column name="IDNOESTABLECIDO" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="emprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" fetch="select">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoconstitucionlegal" class="com.growdata.emprendimiento.persistence.entidad.Tipoconstitucionlegal" fetch="select">
+            <column name="IDTIPOCONSTITUCION" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="sectorproductivo" class="com.growdata.emprendimiento.persistence.entidad.Sectorproductivo" fetch="select">
+            <column name="IDSECTORPRODUCTIVO" precision="22" scale="0" />
+        </many-to-one>
+        <property name="productoservicioofrece" type="string">
+            <column name="PRODUCTOSERVICIOOFRECE" length="400" not-null="true"/>
+        </property>
+        <property name="cuandoinicia" type="date">
+            <column name="CUANDOINICIA" length="7" not-null="true"/>
+        </property>
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="500" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

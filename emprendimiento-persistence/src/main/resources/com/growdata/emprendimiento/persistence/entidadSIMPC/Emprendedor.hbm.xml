@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/06/2019 03:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidadSIMPC.Emprendedor" table="EMPRENDEDOR" schema="SIMPCPRU" optimistic-lock="version">
+        <id name="idEmprendedor" type="big_decimal">
+            <column name="ID_EMPRENDEDOR" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="mdFDatosBasicos" class="com.growdata.emprendimiento.persistence.entidadSIMPC.MdFDatosBasicos" fetch="select">
+            <column name="PERSON_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="esEmprendedor" type="char">
+            <column name="ES_EMPRENDEDOR" length="1" not-null="true" />
+        </property>
+        <property name="fechaRegistroEmprendedor" type="java.sql.Timestamp">
+            <column name="FECHA_REGISTRO_EMPRENDEDOR" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

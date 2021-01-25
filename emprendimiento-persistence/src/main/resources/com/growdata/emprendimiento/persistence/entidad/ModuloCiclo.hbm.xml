@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/06/2019 03:49:42 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Modulociclo" table="ModuloCiclo" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idmodulociclo" type="long">
+            <column name="IDMODULOCICLO" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="capacitacionprograma" class="com.growdata.emprendimiento.persistence.entidad.Capacitacionprograma" fetch="select">
+            <column name="IDCAPACITACIONPROGRAMA" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombremodulociclo" type="string">
+            <column name="NOMBREMODULOCICLO" length="200" not-null="true" />
+        </property>
+        <property name="intensidadhoraria" type="short">
+            <column name="INTENSIDADHORARIA" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="date" update="false">
+            <column name="FECHAREGISTRO" length="7" not-null="true" />
+        </property>
+        <set name="seguimientoasistencias" table="SEGUIMIENTOASISTENCIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDMODULOCICLO" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Seguimientoasistencia" />
+        </set>
+    </class>
+</hibernate-mapping>

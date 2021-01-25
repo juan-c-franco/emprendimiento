@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Tipoemprendimiento" table="TIPOEMPRENDIMIENTO" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idtipoemprendimiento" type="big_decimal">
+            <column name="IDTIPOEMPRENDIMIENTO" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombretipoemprendimiento" type="string">
+            <column name="NOMBRETIPOEMPRENDIMIENTO" length="100" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" not-null="true"/>
+        </property>
+        <set name="emprendimientos" table="EMPRENDIMIENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDTIPOEMPRENDIMIENTO" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" />
+        </set>
+    </class>
+</hibernate-mapping>

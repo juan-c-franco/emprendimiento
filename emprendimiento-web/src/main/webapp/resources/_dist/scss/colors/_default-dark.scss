@@ -1,0 +1,78 @@
+// Default Dark colors
+
+.skin-default-dark {
+    /*Theme Colors*/
+    $themecolor: #5997a9;
+    $themecolor-alt: #26c6da;
+    $sidebar: #2b2b2b;
+    $sidebar-alt:#3f3f3f;
+    $sidebar-text: #f1f1f1;
+    $sidebar-icons: #f1f1f1; 
+
+    //Bread-crumb
+    .page-titles {
+        background: $themecolor;
+
+        .breadcrumb li a {
+            color: $white;
+        }
+
+        .breadcrumb .breadcrumb-item.active{
+            color: $white;
+        }
+    }
+
+    // Sidebar dark
+    .sidebar-nav {
+        ul li {
+            border-bottom: 1px solid #3d3d3d;
+
+            &.nav-small-cap {
+                color: $sidebar-text;
+                font-weight: 300;
+                border-bottom: 1px solid $sidebar-alt;
+            }
+
+            &.nav-big-cap {              
+                background: $themecolor;
+            }
+        }
+
+        ul li a {
+            color: $sidebar-text;
+            
+            &.active,
+            &:hover {
+                color: $themecolor-alt;
+                i {
+                    color: $themecolor-alt;
+                }
+            }      
+        
+        }
+        i {
+            color: $sidebar-text;
+        }
+
+        ul li ul {
+            background: $sidebar-alt;
+        }
+
+    }    
+    
+    .left-sidebar {
+        background: $sidebar;
+        .user-pro-body{
+            a.link{
+                color:$sidebar-text;
+            }
+        }
+    }
+    @media (min-width: 768px){
+        &.mini-sidebar .sidebar-nav #sidebarnav > li > ul, &.mini-sidebar .sidebar-nav #sidebarnav > li:hover > a{
+            background: $sidebar-alt;
+        }
+        
+    }
+    
+}

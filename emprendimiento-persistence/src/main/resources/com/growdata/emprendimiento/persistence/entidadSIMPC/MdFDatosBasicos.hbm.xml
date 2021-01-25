@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/06/2019 03:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidadSIMPC.MdFDatosBasicos" table="MD_F_DATOS_BASICOS" schema="SIMPCPRU" optimistic-lock="version">
+        <id name="personId" type="long">
+            <column name="PERSON_ID" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="cargaId" type="big_decimal">
+            <column name="CARGA_ID" scale="0" not-null="true" />
+        </property>
+        <property name="linea" type="big_decimal">
+            <column name="LINEA" scale="0" not-null="true" />
+        </property>
+        <property name="codigoCcf" type="string">
+            <column name="CODIGO_CCF" length="80" />
+        </property>
+        <property name="agenciaGestionYColocacion" type="string">
+            <column name="AGENCIA_GESTION_Y_COLOCACION" length="800" />
+        </property>
+        <property name="fechaRegistro" type="java.sql.Timestamp">
+            <column name="FECHA_REGISTRO" />
+        </property>
+        <property name="fechaUltimaActualizacion" type="java.sql.Timestamp">
+            <column name="FECHA_ULTIMA_ACTUALIZACION" />
+        </property>
+        <property name="tipoDocumento" type="string">
+            <column name="TIPO_DOCUMENTO" length="20" />
+        </property>
+        <property name="numeroDocumento" type="string">
+            <column name="NUMERO_DOCUMENTO" length="20" />
+        </property>
+        <property name="correoElectronico" type="string">
+            <column name="CORREO_ELECTRONICO" length="320" />
+        </property>
+        <property name="primerNombre" type="string">
+            <column name="PRIMER_NOMBRE" length="800" />
+        </property>
+        <property name="segundoNombre" type="string">
+            <column name="SEGUNDO_NOMBRE" length="800" />
+        </property>
+        <property name="primerApellido" type="string">
+            <column name="PRIMER_APELLIDO" length="800" />
+        </property>
+        <property name="segundoApellido" type="string">
+            <column name="SEGUNDO_APELLIDO" length="800" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="FECHA_NACIMIENTO" length="7" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="SEXO" length="40" />
+        </property>
+        <property name="libretaMilitar" type="string">
+            <column name="LIBRETA_MILITAR" length="64" />
+        </property>
+        <property name="tipoLibreta" type="string">
+            <column name="TIPO_LIBRETA" length="20" />
+        </property>
+        <property name="numeroLibreta" type="string">
+            <column name="NUMERO_LIBRETA" length="80" />
+        </property>
+        <property name="telefonoContacto" type="string">
+            <column name="TELEFONO_CONTACTO" length="32" />
+        </property>
+        <property name="estadoCivil" type="string">
+            <column name="ESTADO_CIVIL" length="20" />
+        </property>
+        <property name="paisNacimiento" type="string">
+            <column name="PAIS_NACIMIENTO" length="8" />
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="NACIONALIDAD" length="200" />
+        </property>
+        <property name="departamentoNacimiento" type="string">
+            <column name="DEPARTAMENTO_NACIMIENTO" length="80" />
+        </property>
+        <property name="municipioNacimiento" type="string">
+            <column name="MUNICIPIO_NACIMIENTO" length="80" />
+        </property>
+        <property name="jefeHogar" type="string">
+            <column name="JEFE_HOGAR" length="20" />
+        </property>
+        <property name="poblacionFocalizada" type="string">
+            <column name="POBLACION_FOCALIZADA" length="20" />
+        </property>
+        <property name="grupoEtnico" type="string">
+            <column name="GRUPO_ETNICO" length="60" />
+        </property>
+        <property name="tipoPoblacion" type="string">
+            <column name="TIPO_POBLACION" length="60" />
+        </property>
+        <property name="condicionesDiscapacidad" type="string">
+            <column name="CONDICIONES_DISCAPACIDAD" length="80" />
+        </property>
+        <property name="tipoDiscapacidad" type="string">
+            <column name="TIPO_DISCAPACIDAD" length="80" />
+        </property>
+        <property name="paisResidencia" type="string">
+            <column name="PAIS_RESIDENCIA" length="80" />
+        </property>
+        <property name="departamentoResidencia" type="string">
+            <column name="DEPARTAMENTO_RESIDENCIA" length="80" />
+        </property>
+        <property name="municipioResidencia" type="string">
+            <column name="MUNICIPIO_RESIDENCIA" length="80" />
+        </property>
+        <property name="direccionResidencia" type="string">
+            <column name="DIRECCION_RESIDENCIA" length="320" />
+        </property>
+        <property name="barrioResidencia" type="string">
+            <column name="BARRIO_RESIDENCIA" length="320" />
+        </property>
+        <property name="otroTelefono" type="string">
+            <column name="OTRO_TELEFONO" length="32" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="4000" />
+        </property>
+        <property name="aspiracionSalarial" type="string">
+            <column name="ASPIRACION_SALARIAL" length="50" />
+        </property>
+        <property name="posibilidadViajar" type="string">
+            <column name="POSIBILIDAD_VIAJAR" length="5" />
+        </property>
+        <property name="posibilidadTrasladarse" type="string">
+            <column name="POSIBILIDAD_TRASLADARSE" length="5" />
+        </property>
+        <property name="interesOfertasTeletrabajo" type="string">
+            <column name="INTERES_OFERTAS_TELETRABAJO" length="5" />
+        </property>
+        <property name="situacionLaboralActual" type="string">
+            <column name="SITUACION_LABORAL_ACTUAL" length="80" />
+        </property>
+        <property name="propietarioMedioTransporte" type="string">
+            <column name="PROPIETARIO_MEDIO_TRANSPORTE" length="80" />
+        </property>
+        <property name="tieneLicenciaCarro" type="string">
+            <column name="TIENE_LICENCIA_CARRO" length="5" />
+        </property>
+        <property name="categoriaLicenciaCarro" type="string">
+            <column name="CATEGORIA_LICENCIA_CARRO" length="48" />
+        </property>
+        <property name="tieneLicenciaMoto" type="string">
+            <column name="TIENE_LICENCIA_MOTO" length="5" />
+        </property>
+        <property name="categoriaLicenciaMoto" type="string">
+            <column name="CATEGORIA_LICENCIA_MOTO" length="48" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="30" />
+        </property>
+        <set name="emprendedors" table="EMPRENDEDOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PERSON_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidadSIMPC.Emprendedor" />
+        </set>
+        <set name="recobroses" table="RECOBROS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PERSON_ID" precision="38" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidadSIMPC.Recobros" />
+        </set>
+    </class>
+</hibernate-mapping>

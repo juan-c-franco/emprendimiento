@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Evaluacionemprendimientos" table="EVALUACIONEMPRENDIMIENTOS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idevaluacion" type="long">
+            <column name="IDEVALUACION" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="emprendimiento" class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" fetch="select">
+            <column name="IDEMPRENDIMIENTO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sesioncomite" class="com.growdata.emprendimiento.persistence.entidad.Sesioncomite" fetch="select">
+            <column name="IDSESIONCOMITE" precision="18" scale="0" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="tipoprioridad" class="com.growdata.emprendimiento.persistence.entidad.Tipoprioridad" fetch="select">
+            <column name="IDTIPOPRIORIDAD" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="calificacionfinal" type="big_decimal">
+            <column name="CALIFICACIONFINAL" precision="22" scale="0" not-null="true"/>
+        </property>
+        <property name="aprobado" type="java.lang.Character">
+            <column name="APROBADO" length="1" not-null="true"/>
+        </property>
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="500" not-null="true"/>
+        </property>
+        <property name="fechaevaluacion" type="date">
+            <column name="FECHAEVALUACION" length="7" not-null="true"/>
+        </property>
+        <set name="evaluacionintegrantescomites" table="EVALUACIONINTEGRANTESCOMITE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDEVALUACION" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Evaluacionintegrantescomite" />
+        </set>
+    </class>
+</hibernate-mapping>

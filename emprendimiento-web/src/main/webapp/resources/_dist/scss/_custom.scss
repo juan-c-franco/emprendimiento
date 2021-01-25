@@ -1,0 +1,224 @@
+// En este scss puedes sobreescribir todos los estilos scss
+// sugerimos que agregues tus scss aqui y no modifiques los originales 
+// para poder realizar actualizaciones del core scss sin problemas.
+
+// Typography
+// font path Din Alternate to  Admin
+// Font, line-height, and color for body text, headings, and more.
+
+//$font-family-sans-serif:     'Din Alternate', sans-serif !default;
+
+body {
+    font-size: $font-size-base;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: $headings-margin-bottom * 2;
+}
+
+.list-right-sidebar li {
+    padding: 5px 0 12px 0 !important;
+}
+
+// apps.scss //
+
+.btn-crud {
+    margin: 12px 3px;
+}
+
+// responsive.scss //
+
+@media (min-width: 820px) {
+    .page-wrapper,
+    .footer {
+        margin-left: $width-sidebar;
+    }
+}
+
+@media (min-width: 820px) {
+    .navbar-header {
+        width: $width-sidebar;
+    }
+}
+
+@media(max-width:819px) {
+    .mini-sidebar {
+        .left-sidebar,
+        .sidebar-footer {
+            left: -$width-sidebar;
+        }
+    }
+}
+
+// theme-settings.scss //
+
+.fixed-sidebar{
+    .navbar-collapse{
+        margin-left: $width-sidebar;
+    }
+}
+
+// scafholding.css //
+label {
+    font-weight: 700 !important;
+}
+
+.label {
+    font-size: inherit;
+}
+
+.label-th {
+    font-weight: 600 !important;
+    height: 40px !important;
+    padding: .6rem !important;
+    vertical-align: middle !important;
+    width: 240px !important;
+}
+
+// bootstrap modify
+.tooltip { 
+    z-index: 9999 !important; 
+}
+
+.logo-gobierno {
+    margin: 0 auto;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+.mdi:before, .mdi-set {
+    font-size: 16px;
+}
+
+.dropdown-item.active, 
+.dropdown-item:active {
+    color: $white;
+    background-color: $secondary;
+}
+
+// eventos colores emprendimiento //
+html body .bg-registrar {
+    background-color: #03a9f3;
+}
+html body .bg-cancelada {
+    background-color: #e46a76;
+}
+html body .bg-reservada {
+    background-color: #fec107;
+}
+html body .bg-culminada {
+    background-color: #000;
+}
+html body .bg-disponible {
+    background-color: #00c292;
+}
+html body .bg-sincupo {
+    background-color: #6f42c1;
+}
+html body .bg-otro {
+    background-color: #4F5467;
+}
+
+
+// Switch Flat //
+.switch-flat {
+    padding: 0;
+    background: #FFF;
+    background-image: none;
+}
+.switch-flat .switch-label {
+    background: #FFF;
+    border: solid 2px #eceeef;
+    box-shadow: none;
+}
+.switch-flat .switch-label:after {
+    color: #0088cc;
+}
+.switch-flat .switch-handle {
+    top: 6px;
+    left: 6px;
+    background: #dadada;
+    width: 22px;
+    height: 22px;
+    box-shadow: none;
+}
+.switch-flat .switch-handle:before {
+    background: #eceeef;
+}
+.switch-flat .switch-input:checked ~ .switch-label {
+    background: #FFF;
+    border-color: #0088cc;
+}
+.switch-flat .switch-input:checked ~ .switch-handle {
+    left: 72px;
+    background: #0088cc;
+    box-shadow: none;
+}
+
+.footer-encuesta {
+    margin-left: inherit;
+}
+
+.ul-noPadding {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.table-vertical-center td {
+    vertical-align: middle !important;
+}
+
+.copyright-top-border{
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+}
+
+.logo-gobierno-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer-login{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table{
+    overflow-x: auto;
+    //table-layout: fixed;
+    width: 100%;
+    //display: block;
+}
+
+.m-t-10{
+    margin-top: 10px;
+}
+
+.m-b-0{
+    margin-bottom: 0px !important;
+  }
+.m-b-10{
+    margin-bottom: 10px;
+  }
+.m-b-footer{
+      margin-bottom: 122px;
+  }
+/*.table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}*/
+.tooltip {
+    pointer-events: none;
+}

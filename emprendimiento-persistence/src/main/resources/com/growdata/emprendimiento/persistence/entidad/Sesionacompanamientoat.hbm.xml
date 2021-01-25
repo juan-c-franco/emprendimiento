@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Sesionacompanamientoat" table="SESIONACOMPANAMIENTOAT" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idsesionacompanamientoat" type="long">
+            <column name="IDSESIONACOMPANAMIENTOAT" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="estadosesion" class="com.growdata.emprendimiento.persistence.entidad.Estadosesion" fetch="select" lazy="false">
+            <column name="IDESTADOSESION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.growdata.emprendimiento.persistence.entidad.Funcionario" fetch="select" lazy="false">
+            <column name="IDFUNCIONARIO" precision="18" scale="0" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="rutaacompanamientoat" class="com.growdata.emprendimiento.persistence.entidad.Rutaacompanamientoat" fetch="select" lazy="false">
+            <column name="IDRUTAACOMPANAMIENTOAT" precision="18" scale="0"/>
+        </many-to-one>
+        <many-to-one name="temasrutaacompanamientoat" class="com.growdata.emprendimiento.persistence.entidad.Temasrutaacompanamientoat" fetch="select" lazy="false">
+            <column name="IDTEMARUTAACOMPANAMIENTOAT" precision="18" scale="0"/>
+        </many-to-one>
+        <property name="fechainicio" type="java.sql.Timestamp">
+            <column name="FECHAINICIO" not-null="true"/>
+        </property>
+        <property name="fechafinal" type="java.sql.Timestamp">
+            <column name="FECHAFINAL" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="java.sql.Timestamp">
+            <column name="FECHAREGISTRO" not-null="true"/>
+        </property>
+        <property name="observaciones" type="string">
+            <column name="OBSERVACIONES" length="500" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="UBICACION" length="100" not-null="true"/>
+        </property>
+        <set name="listaasistenciaaats" table="LISTAASISTENCIAAAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDSESIONACOMPANAMIENTOAT" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Listaasistenciaaat" />
+        </set>
+    </class>
+</hibernate-mapping>

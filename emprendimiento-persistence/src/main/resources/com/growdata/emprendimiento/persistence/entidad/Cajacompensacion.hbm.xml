@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Cajacompensacion" table="CAJACOMPENSACION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idcajacompensacion" type="big_decimal">
+            <column name="IDCAJACOMPENSACION" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="estadocajacompensacion" class="com.growdata.emprendimiento.persistence.entidad.Estadocajacompensacion" fetch="select" lazy="false">
+            <column name="IDESTADOCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="nombrecajacompensacion" type="string">
+            <column name="NOMBRECAJACOMPENSACION" length="100" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="date" update="false">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <property name="codigoccf" type="string">
+            <column name="CODIGOCCF" length="25" not-null="true"/>
+        </property>
+        <property name="departamento" type="string">
+            <column name="DEPARTAMENTO" length="50" not-null="true"/>
+        </property>
+        <set name="temasevaluacions" table="TEMASEVALUACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Temasevaluacion" />
+        </set>
+        <set name="funcionarios" table="FUNCIONARIO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Funcionario" />
+        </set>
+        <set name="comiteevaluacions" table="COMITEEVALUACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Comiteevaluacion" />
+        </set>
+        <set name="emprendimientos" table="EMPRENDIMIENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAJACOMPENSACION" precision="38" scale="0" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Emprendimiento" />
+        </set>
+        <set name="preguntases" table="PREGUNTAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Preguntas" />
+        </set>
+    </class>
+</hibernate-mapping>

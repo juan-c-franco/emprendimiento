@@ -1,0 +1,156 @@
+/*******************/
+/*Calendar widget*/
+/*******************/
+
+.calendar {
+    float: $lft;
+    margin-bottom: 0px;
+}
+
+.fc-view {
+    margin-top: 10px;
+}
+
+.none-border {
+    .modal-footer {
+        border-top: none;
+    }
+}
+
+.fc-toolbar {
+    margin-bottom: 5px;
+    margin-top: 15px;
+    h2 {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 26px;
+        text-transform: uppercase;
+    }
+}
+
+.fc-toolbar .fc-state-active,
+.fc-toolbar .ui-state-active,
+.fc-toolbar button:focus,
+.fc-toolbar button:hover,
+.fc-toolbar .ui-state-hover {
+    z-index: 0;
+}
+
+.fc-widget-header {
+    border: 0px !important;
+}
+
+.fc-widget-content {
+    border-color: rgba(120, 130, 140, 0.13)!important;
+}
+
+.fc {
+    th.fc-widget-header {
+        color: $body-color;
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 20px;
+        padding: 7px 0px;
+        text-transform: uppercase;
+    }
+    th.fc-sun,
+    th.fc-tue,
+    th.fc-thu,
+    th.fc-sat {
+        background: $gray-200;
+    }
+    th.fc-mon,
+    th.fc-wed,
+    th.fc-fri {
+        background: $gray-200;
+    }
+}
+
+.fc-view {
+    margin-top: 0px;
+}
+
+.fc-toolbar {
+    margin: 0px;
+    padding: 18px 0px;
+}
+
+.fc-button {
+    background: $white;
+    border: 1px solid $border-color;
+    color: $body-color;
+    text-transform: capitalize;
+    &:hover {
+        background: $gray-200;
+        opacity: 0.8;
+    }
+}
+
+.fc-text-arrow {
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.fc-state-hover {
+    background: $gray-100;
+}
+
+.fc-unthemed .fc-today {
+    border: 1px solid $danger;
+    background: $gray-200!important;
+}
+
+.fc-state-highlight {
+    background: #f0f0f0;
+}
+
+.fc-cell-overlay {
+    background: #f0f0f0;
+}
+
+.fc-unthemed {
+    .fc-today {
+        background: $white;
+    }
+}
+
+.fc-event {
+    border-radius: 0px;
+    border: none;
+    cursor: pointer;
+    color: $white!important;    
+    margin: 1px -1px 0 -1px;
+    padding: 2px 2px;
+    text-align: center;
+    background: $info;
+}
+
+.calendar-event {
+    cursor: pointer;
+    margin: 5px 5px 0 0;
+    padding: 3px 5px;
+    display: inline-block;
+    color: $white;
+    min-width: 140px;
+    text-align: center;
+    background: $info;
+    a {
+        float: $rgt;
+        opacity: 0.6;
+        font-size: 10px;
+        margin: 4px 0 0 4px;
+        color: $white;
+    }
+}
+
+.fc-basic-view {
+    td.fc-week-number {
+        span {
+            padding-right: 5px;
+        }
+    }
+    .fc-day-number {
+        padding: 1px 7px;
+        display: inline-block;
+    }
+}

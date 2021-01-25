@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Preguntas" table="PREGUNTAS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idpregunta" type="big_decimal">
+            <column name="IDPREGUNTA" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="cajacompensacion" class="com.growdata.emprendimiento.persistence.entidad.Cajacompensacion" fetch="select" lazy="false">
+            <column name="IDCAJACOMPENSACION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="herramientasvaloracion" class="com.growdata.emprendimiento.persistence.entidad.Herramientasvaloracion" fetch="select" lazy="false">
+            <column name="IDHERRAMIENTA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="temasevaluacion" class="com.growdata.emprendimiento.persistence.entidad.Temasevaluacion" fetch="select" lazy="false">
+            <column name="IDTEMA" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="textopregunta" type="string">
+            <column name="TEXTOPREGUNTA" length="500" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <set name="respuestasencuestas" table="RESPUESTASENCUESTA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDPREGUNTA" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Respuestasencuesta" />
+        </set>
+    </class>
+</hibernate-mapping>

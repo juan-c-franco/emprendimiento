@@ -1,0 +1,1 @@
+alter table loginiciosesion modify FECHAREGISTRO timestamp(3);

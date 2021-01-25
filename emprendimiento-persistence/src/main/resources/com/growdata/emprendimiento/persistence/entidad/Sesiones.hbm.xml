@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Sesiones" table="SESIONES" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idsesion" type="long">
+            <column name="IDSESION" precision="18" scale="0" />
+            <generator class="increment"/> 
+        </id>
+        <many-to-one name="estadosesion" class="com.growdata.emprendimiento.persistence.entidad.Estadosesion" fetch="select" lazy="false">
+            <column name="IDESTADOSESION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="funcionario" class="com.growdata.emprendimiento.persistence.entidad.Funcionario" fetch="select" lazy="false">
+            <column name="IDFUNCIONARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposesion" class="com.growdata.emprendimiento.persistence.entidad.Tiposesion" fetch="select">
+            <column name="IDTIPOSESION" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fechainicio" type="java.sql.Timestamp">
+            <column name="FECHAINICIO" not-null="true"/>
+        </property>
+        <property name="fechafinal" type="java.sql.Timestamp">
+            <column name="FECHAFINAL" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="100" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="UBICACION" length="100" not-null="true"/>
+        </property>
+        <property name="maxAsistentes" type="java.lang.Long">
+            <column name="MAXASISTENTES"  not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="java.sql.Timestamp">
+            <column name="FECHAREGISTRO"  not-null="true"/>
+        </property>
+        <set name="listaasistencias" table="LISTAASISTENCIA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDSESION" precision="18" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Listaasistencia" />
+        </set>
+    </class>
+</hibernate-mapping>

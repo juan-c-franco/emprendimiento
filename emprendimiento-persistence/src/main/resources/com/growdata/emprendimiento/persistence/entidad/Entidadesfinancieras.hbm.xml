@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Entidadesfinancieras" table="ENTIDADESFINANCIERAS" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="identidadfinanciera" type="big_decimal">
+            <column name="IDENTIDADFINANCIERA" precision="22" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="nombreentidad" type="string">
+            <column name="NOMBREENTIDAD" length="200" not-null="true"/>
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="500" not-null="true"/>
+        </property>
+        <property name="estado" type="java.lang.Character">
+            <column name="ESTADO" length="1" not-null="true"/>
+        </property>
+        <property name="fecharegistro" type="date" update="false">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+        <set name="financiacions" table="FINANCIACION" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IDENTIDADFINANCIERA" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.growdata.emprendimiento.persistence.entidad.Financiacion" />
+        </set>
+    </class>
+</hibernate-mapping>

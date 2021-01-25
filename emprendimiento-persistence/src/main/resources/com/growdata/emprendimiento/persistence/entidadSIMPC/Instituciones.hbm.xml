@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/06/2019 03:04:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidadSIMPC.Instituciones" table="INSTITUCIONES" schema="SIMPCPRU" optimistic-lock="version">
+        <id name="id" type="big_decimal">
+            <column name="ID" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="fechaAprobacion" type="java.sql.Timestamp" update="false">
+            <column name="FECHA_APROBACION" />
+        </property>
+        <property name="correoElectronico" type="string" >
+            <column name="CORREO_ELECTRONICO" length="200" not-null="true" />
+        </property>
+        <property name="numeroTelefono" type="string">
+            <column name="NUMERO_TELEFONO" length="60" />
+        </property>
+        <property name="fechaCreacion" type="java.sql.Timestamp" update="false">
+            <column name="FECHA_CREACION" not-null="true" />
+        </property>
+        <property name="digitoVerificacion" type="long" >
+            <column name="DIGITO_VERIFICACION" precision="1" scale="0" />
+        </property>
+        <property name="nombreInstitucion" type="string">
+            <column name="NOMBRE_INSTITUCION" length="200" not-null="true" unique="true" />
+        </property>
+        <property name="naturalezaJuridica" type="int" >
+            <column name="NATURALEZA_JURIDICA" precision="1" scale="0" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="java.sql.Timestamp">
+            <column name="FECHA_MODIFICACION" />
+        </property>
+        <property name="nit" type="string" >
+            <column name="NIT" length="60" not-null="true" />
+        </property>
+        <property name="origen" type="char" >
+            <column name="ORIGEN" length="1" not-null="true" />
+        </property>
+        <property name="certificacionCalidad" type="blob" update="false">
+            <column name="CERTIFICACION_CALIDAD" />
+        </property>
+        <property name="vencimientoCertificacion" type="date" update="false">
+            <column name="VENCIMIENTO_CERTIFICACION" length="7" />
+        </property>
+        <property name="estado" type="char">
+            <column name="ESTADO" length="1" not-null="true" />
+        </property>
+        <property name="idUsuarioCreacion" type="big_decimal" update="false">
+            <column name="ID_USUARIO_CREACION" scale="0" not-null="true" />
+        </property>
+        <property name="tipoDocumento" type="big_decimal" update="false">
+            <column name="TIPO_DOCUMENTO" scale="0" not-null="true" />
+        </property>
+        <property name="idUsuarioModificacion" type="big_decimal" >
+            <column name="ID_USUARIO_MODIFICACION" scale="0" />
+        </property>
+        <property name="tipoInstitucionId" type="big_decimal" >
+            <column name="TIPO_INSTITUCION_ID" scale="0" not-null="true" />
+        </property>
+        <property name="estadoAprobacion" type="char" >
+            <column name="ESTADO_APROBACION" length="1" not-null="true" />
+        </property>
+        <property name="tipoCertificacion" type="big_decimal">
+            <column name="TIPO_CERTIFICACION" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

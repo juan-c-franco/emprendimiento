@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Listaasistencia" table="LISTAASISTENCIA" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idasistencia" type="long">
+            <column name="IDASISTENCIA" precision="18" scale="0" />
+            <generator class="increment"/> 
+        </id>
+        <many-to-one name="beneficiario" class="com.growdata.emprendimiento.persistence.entidad.Beneficiario" fetch="select">
+            <column name="IDBENEFICIARIO" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="sesiones" class="com.growdata.emprendimiento.persistence.entidad.Sesiones" fetch="select">
+            <column name="IDSESION" precision="18" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="fecharegistro" type="date">
+            <column name="FECHAREGISTRO" length="7" />
+        </property>
+        <property name="registroasistencia" type="java.lang.Character">
+            <column name="REGISTROASISTENCIA" length="1" />
+        </property>
+        <property name="justificacioninasistencia" type="java.lang.Character">
+            <column name="JUSTIFICACIONINASISTENCIA" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

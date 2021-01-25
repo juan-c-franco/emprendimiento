@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8/10/2018 04:30:54 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.growdata.emprendimiento.persistence.entidad.Loginiciosesion" table="LOGINICIOSESION" schema="EMPRENDIMIENTOP" optimistic-lock="version">
+        <id name="idlogis" type="long">
+            <column name="IDLOGIS" precision="18" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="username" type="string">
+            <column name="USERNAME" length="200" scale="0" not-null="true" />
+        </property>
+        <property name="fecharegistro" type="java.sql.Timestamp">
+            <column name="FECHAREGISTRO" length="7" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
