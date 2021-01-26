@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Git Checkout') {
+        stage("Git Checkout") {
             steps {
                 git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git'
+            }
+        }
+        stage("Maven Build") {
+            steps {
+                sh "mvn clean install"
             }
         }
     }  
