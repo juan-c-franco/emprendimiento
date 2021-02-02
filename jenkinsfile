@@ -2,7 +2,6 @@ currentBuild.displayName = "Emprendimiento-#"+currentBuild.number
 pipeline {
     agent any
     stages {
-       
         stage("Git Checkout") {
             steps {
                 git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git'
@@ -24,8 +23,9 @@ pipeline {
                                 -Dsonar.exclusions=**/assets/**,**/test/**,node_modules\\**,dist\\**,coverage\\**,src\\app\\resources\\**,src\\app\\config\\**,src\\app\\testClass\\**
                                 """
 		}
+		sleep 60
         }
-	stage('Evaluate Quality Gate') {
+	stage("Evaluate Quality Gate") {
             def qg = waitForQualityGate()
             if (qg.status != 'OK') {
                error "Pipeline aborted due to quality gate failure: ${qg.status}"
