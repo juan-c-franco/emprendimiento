@@ -15,7 +15,9 @@ pipeline {
        		def sonarSources='./emprendimiento-business/src,./emprendimiento-persistence/src,./emprendimiento-web/src'
        		def sonarExclusions='./emprendimiento-business/src/test/*,./emprendimiento-persistence/src/test/*,./emprendimiento-web/src/test/*,./emprendimiento-web/src/main/resources/*,./emprendimiento-web/src/main/webapp/*'
        		def sonarTypescriptLcovReportPath='./coverage/lcov.info'
+		withSonarQubeEnv('localsonar') {
 		
+		}
                 bat """
                 mvn -s mvn-settings.xml -DskipTests sonar:sonar \
                                 -Dsonar.projectKey=${sonarProjectKey} \
