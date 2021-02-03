@@ -7,29 +7,5 @@ pipeline {
                 git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git'
             }
         }
-	stage('SonarQube Analysis') {
-        	def sonarProjectKey = "emprendimiento"
-       		def sonarProjectName = "emprendimiento"
-       		def sonarSources='./emprendimiento-business/src,./emprendimiento-persistence/src,./emprendimiento-web/src'
-       		def sonarExclusions='./emprendimiento-business/src/test/*,./emprendimiento-persistence/src/test/*,./emprendimiento-web/src/test/*,./emprendimiento-web/src/main/resources/*,./emprendimiento-web/src/main/webapp/*'
-       		def sonarTypescriptLcovReportPath='./coverage/lcov.info'
-
-        withSonarQubeEnv('localsonar') {
-            bat """sonar-scanner.bat \
-                -Dsonar.projectKey=${sonarProjectKey} \
-                -Dsonar.projectName=${sonarProjectName} \
-                -Dsonar.sources=${sonarSources} \
-                -Dsonar.typescript.lcov.reportPaths=${sonarTypescriptLcovReportPath} \
-                -Dsonar.exclusions=${sonarExclusions}
-            """
-        }
-        sleep 60
-    }
-	stage("Evaluate Quality Gate") {
-            def qg = waitForQualityGate()
-            if (qg.status != 'OK') {
-               error "Pipeline aborted due to quality gate failure: ${qg.status}"
-            }
-        }
     }  
 }
