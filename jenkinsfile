@@ -1,7 +1,7 @@
 currentBuild.displayName = "Emprendimiento-#"+currentBuild.number
 node {
         stage("Git Checkout") {           
-            git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git'
+            git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git', brach:'master'
         }
         stage("build & SonarQube analysis") {
               withSonarQubeEnv('localsonar') {
