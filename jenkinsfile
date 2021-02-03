@@ -1,27 +1,18 @@
 currentBuild.displayName = "Emprendimiento-#"+currentBuild.number
-pipeline {
-    agent any
-    stages {
-        stage("Git Checkout") {
-            steps {
-                git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git'
-            }
+node {
+        stage("Git Checkout") {           
+            git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git'
         }
         stage("build & SonarQube analysis") {
-            agent any
-            steps {
               withSonarQubeEnv('localsonar') {
                 bat 'mvn clean install sonar:sonar'
               }
-            }
+              sleep 60
           }
         stage('Evaluate Quality Gate') {
             def qg = waitForQualityGate()
-            steps {
                 if (qg.status != 'OK') {
                     error "Pipeline aborted due to quality gate failure: ${qg.status}"
                 }
-            }
         }
-    }  
 }
