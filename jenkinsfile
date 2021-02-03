@@ -1,6 +1,7 @@
 currentBuild.displayName = "Emprendimiento-#"+currentBuild.number
 node {
-        stage("Git Checkout") {           
+        stage("Git Checkout") {
+            step([$class: 'WsCleanup'])    
             git credentialsId: 'juancfranco', url: 'https://github.com/yonki/emprendimiento.git', brach:'master'
         }
         stage("build & SonarQube analysis") {
